@@ -9,11 +9,19 @@
 .form-group > * {
   width: 100%;
   align-content: center;
-
+  alignment: center;
 }
 
 .registration-card {
   max-width: 800px;
   align-content: center;
   alignment: center;
+  background-color: aliceblue;
+  top: 50px;
+  left: 325px;
+}
+
+
+img {
+  height: 700px;
 }
