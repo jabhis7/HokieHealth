@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import {AuthService} from './_services/auth.service';
+import {Component} from '@angular/core';
 import {Router} from '@angular/router';
-import {User} from './_models/user';
 import {Role} from './_models/role';
+import {User} from './_models/user';
+import {AuthService} from './_services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -30,4 +30,8 @@ export class AppComponent {
     this.router.navigate(['/login']);
   }
 
+  isDoc()
+  {
+    return this.currentUser && this.currentUser.role === Role.doctor;
+  }
 }
