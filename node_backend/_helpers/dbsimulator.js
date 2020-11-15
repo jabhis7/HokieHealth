@@ -4,6 +4,7 @@
 module.exports = {
     findUser,
     addUser,
+    getAllUsers
     }
 
 
@@ -15,7 +16,8 @@ let Users = [{
    password:"123123"},
     {username: "pat",
         role: "Patient",
-        password:"123123"}
+        password:"123123",
+        currMed: "Aspirin"}
 ];
 
 

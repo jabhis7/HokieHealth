@@ -1,1 +1,9 @@
-<p>main-view works!</p>
+<h1>Patients</h1>
+<div>
+  Patients:
+  <ul>
+    <div *ngFor="let user of users" >
+      <li *ngIf="user.role.toString().charAt(0) === 'P'"> {{user.role}} {{user.username}} {{user.currMed}} </li>
+      </div>
+  </ul>
+</div>

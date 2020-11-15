@@ -2,7 +2,6 @@ const config = require('../config.json');
 const jwt = require('jsonwebtoken');
 const SimulatedDB = require('../_helpers/dbsimulator');
 
-
 module.exports = {
     authenticate,
     getAllUsers,
