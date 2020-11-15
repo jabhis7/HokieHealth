@@ -39,10 +39,14 @@
         </mat-form-field>
       </div>
 
+      <button mat-button *ngIf="flag" (click)="alterDisplay()">Click here to give additional patient information</button>
+
+      <div *ngIf ="display" >
       <div class="form-group">
 
+<!--        <mat-option [value]="role.name" *ngFor="let role of roles;">{{role.name}}</mat-option>-->
         <mat-form-field>
-          <input matInput placeholder="age" type="number" formControlName="age" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.age.errors }">
+          <input matInput placeholder="Patient's Age" type="number" formControlName="age" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.age.errors }">
           <mat-hint *ngIf="submitted && f.age.errors" >
             <mat-hint *ngIf="f.age.errors.required">Age is required</mat-hint>
             <mat-hint *ngIf="f.age.errors.pattern">Age is using illegal characters.</mat-hint>
@@ -50,11 +54,12 @@
         </mat-form-field>
 
       </div>
-<!--     <mat-option *ngIf="!isDoc()">-->
+
+      <!--     <mat-option *ngIf="!isDoc()">-->
       <div class="form-group">
 
         <mat-form-field>
-          <input matInput placeholder="Previous Health Problems" type="string" formControlName="PreviousHealthProblems" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.PreviousHealthProblems.errors }">
+          <input matInput placeholder="Patient's Previous Health Problems" type="string" formControlName="PreviousHealthProblems" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.PreviousHealthProblems.errors }">
           <mat-hint *ngIf="submitted && f.PreviousHealthProblems.errors" >
             <mat-hint *ngIf="f.PreviousHealthProblems.errors.required">Previous Health Problems is required</mat-hint>
             <mat-hint *ngIf="f.PreviousHealthProblems.errors.pattern">Previous Health Problems is using illegal characters.</mat-hint>
@@ -66,7 +71,7 @@
       <div class="form-group">
 
         <mat-form-field>
-          <input matInput placeholder="Current Medications" type="string" formControlName="CurrentMedications" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.CurrentMedications.errors }">
+          <input matInput placeholder="Patient's Current Medications" type="string" formControlName="CurrentMedications" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.CurrentMedications.errors }">
           <mat-hint *ngIf="submitted && f.PreviousHealthProblems.errors" >
             <mat-hint *ngIf="f.CurrentMedications.errors.required">Current Medications is required</mat-hint>
             <mat-hint *ngIf="f.CurrentMedications.errors.pattern">Current Medications is using illegal characters.</mat-hint>
@@ -74,7 +79,8 @@
         </mat-form-field>
 
       </div>
-<!--       </mat-option>-->
+      </div>
+
 
 
 

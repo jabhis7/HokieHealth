@@ -18,7 +18,8 @@ export class RegisterUserComponent implements OnInit {
   loading = false;
   submitted = false;
   roles = [];
-
+  display = false;
+  flag = true;
 
   constructor(
     // private patternValidator: PatternValidator,
@@ -39,7 +40,7 @@ export class RegisterUserComponent implements OnInit {
       role: [''],
       username: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.-]*$')]/*this.validateUsernameNotTaken.bind(this)*/],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      age:['', Validators.required, Validators.pattern('^[0-9]$')],
+      age: ['', Validators.pattern('^[0-9]$')],
       PreviousHealthProblems: [''],
       CurrentMedications: [''],
     });
@@ -50,7 +51,8 @@ export class RegisterUserComponent implements OnInit {
 
   // convenience getter for easy access to form fields
   get f() {
-    return this.registerForm.controls; }
+    return this.registerForm.controls;
+  }
 
   onSubmit() {
     this.submitted = true;
@@ -75,4 +77,9 @@ export class RegisterUserComponent implements OnInit {
         });
   }
 
+  alterDisplay()
+  {
+    this.display = true;
+    this.flag = false;
+  }
 }
