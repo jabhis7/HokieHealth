@@ -22,14 +22,11 @@ app.use(jwt());
 
 app.use('/user', require('./routes/user.router'));
 
-//TODO:DONE make the 'app' use the course routes. Use '/course' as the base URL.
-app.use('/course', require('./routes/course.router'));
-
 app.use(errorHandler);
 
 
 // start server
-const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 4000;
+const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 3000;
 app.listen(port, function () {
   console.log('Server listening on port ' + port);
 });

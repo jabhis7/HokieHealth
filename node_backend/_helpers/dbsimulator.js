@@ -63,6 +63,3 @@ async function addUser(user){
             reject(false);
     });
 }
-
-
-}
