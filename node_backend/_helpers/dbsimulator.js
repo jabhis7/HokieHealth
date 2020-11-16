@@ -17,7 +17,8 @@ let Users = [{
     {username: "pat",
         role: "Patient",
         password:"123123",
-        currMed: "Aspirin"}
+        currMed: "Aspirin",
+        prevProb: "Coronavirus"}
 ];
 
 

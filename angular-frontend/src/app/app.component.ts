@@ -30,7 +30,7 @@ export class AppComponent {
     this.router.navigate(['/login']);
   }
 
-  isDoc()
+  get isDoc()
   {
     return this.currentUser && this.currentUser.role === Role.doctor;
   }
