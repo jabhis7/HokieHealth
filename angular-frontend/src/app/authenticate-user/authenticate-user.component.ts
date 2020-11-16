@@ -5,12 +5,13 @@ import { first } from 'rxjs/operators';
 import {AuthService} from '../_services/auth.service';
 import {Router} from '@angular/router';
 import {NotificationService} from '../_services/notification.service';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 
 @Component({ templateUrl: 'authenticate-user.component.html' ,
   styleUrls: ['authenticate-user.component.css']})
 export class AuthenticateUserComponent {
-  // loginForm: FormGroup;
+  loginForm: FormGroup;
   loading = false;
   submitted = false;
   error = '';
@@ -20,12 +21,15 @@ export class AuthenticateUserComponent {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private notif: NotificationService
+    private notif: NotificationService,
+    private formBuilder: FormBuilder
   ) {
-    if (this.authService.currentUserValue) {
-    }
+
   }
 
+  ngOninit() {
+    this.loginForm = this.formBuilder.group({username:['', Validators.required], password:['',Validators.required]});
+  }
   login() {
     this.submitted = true;
     this.loading = true;
@@ -44,6 +48,10 @@ export class AuthenticateUserComponent {
           this.notif.showNotif(this.error, 'dismiss');
           console.log('Error', error);
         });
+  }
+
+  get f() {
+    return this.loginForm.controls;
   }
 }
 
