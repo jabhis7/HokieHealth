@@ -21,8 +21,11 @@ async function getAllRecords(req) {
     let user = await User.findOne({_id: userid});
     if (user.role === "Doctor") {
         // do doctor things
-        let patientid = req.body.patientid;
-        let patient = await User.findOne({_id: patientid});
+        let username = req.body.username;
+        let patient = await User.findOne({username: username});
+        if (!patient) {
+            throw new Error("patient " + username + " not found");
+        }
         return patient.records;
     }
     else {
@@ -51,11 +54,13 @@ async function addRecord(req) {
     }
     else if (user.role === "Patient") {
         // validate request body
-        if (record.heartrate && record.date) {
+        if (record.heartrate) {
             record.user = userid;
             const recordLiteral = Record(record);
+            let patient = await User.findOne({_id: userid});
             await recordLiteral.save();
-            return "record saved successfully";
+            patient.records.push(recordLiteral);
+            return await User.updateOne({"username": patient.username}, {$set: {"records": patient.records}});
         }
         else {
             throw new Error("Invalid record input, please fill in required fields");

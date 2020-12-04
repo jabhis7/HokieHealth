@@ -20,7 +20,7 @@ const secret = config.secret;
 async function isRevoked(req, payload, done) {
    // console.log("isRevoked():", req.body, payload);
 
-    const user = await userService.getByUsername(payload.sub);
+    const user = await userService.getById(payload.sub);
 
     // revoke token if user no longer exists
     if (!user) {

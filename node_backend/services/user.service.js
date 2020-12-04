@@ -8,7 +8,8 @@ module.exports = {
     authenticate,
     getAllPatients,
     addUser,
-    addPatient
+    addPatient,
+    getById
 }
 
 /**
@@ -53,7 +54,7 @@ async function getAllPatients(req) {
  * @param {request} req The request to add a patient to a doctor user.
  */
 async function addPatient(req) {
-    let reqid = req.body.patientid;
+    let username = req.body.username;
     
     let userid = req.user.sub;
     let user = await User.findOne({_id: userid});
@@ -62,12 +63,18 @@ async function addPatient(req) {
     if (user.role === "Patient") {
         throw new Error("Patients cannot have patients");
     }
-    user.patients.forEach((patient) => {
-        if (patient == reqid) {
-            throw new Error("cannot add duplicate patients");
-        }
-    });
-    user.patients.push(reqid);
+    let patient = await User.findOne({username: username});
+    if (patient) {
+        user.patients.forEach((p) => {
+            if (p == patient._id) {
+                throw new Error("cannot add duplicate patients");
+            }
+        });
+        user.patients.push(patient._id);
+    }
+    else {
+        throw new Error("patient nonexistant");
+    }
     await User.updateOne({"username": user.username}, {$set: {"patients": user.patients}});
     return user;
 }
