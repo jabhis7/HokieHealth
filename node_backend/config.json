@@ -1,4 +1,4 @@
 {
-
-    "secret": "a secret that no one should guess"
+    "connectionString": "mongodb://localhost/hokiehealth",
+    "secret": "gonna have to check our hokie health after finals"
 }

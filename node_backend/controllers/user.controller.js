@@ -3,8 +3,9 @@ const userService = require('../services/user.service');
 
 module.exports = {
     authenticate,
-    getAllUsers,
-    register
+    getAllPatients,
+    addUser,
+    addPatient
 };
 
 
@@ -15,14 +16,20 @@ function authenticate(req, res, next) {
         .catch(err => next(err));
 }
 
-function getAllUsers(req, res, next) {
+function getAllPatients(req, res, next) {
 
-    userService.getAllUsers()
+    userService.getAllPatients(req)
         .then(users => res.json(users))
         .catch(err => next(err));
 }
 
-function register(req, res, next) {
+function addPatient(req, res, next) {
+    userService.addPatient(req)
+        .then(pat => res.json(pat))
+        .catch(err => next(err));
+}
+
+function addUser(req, res, next) {
 
    userService.addUser(req.body)
         .then(() => res.json({}))
