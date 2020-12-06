@@ -18,11 +18,11 @@ module.exports = {
  */
 async function getAllRecords(req) {
     let userid = req.user.sub;
-    let user = await User.findOne({_id: userid});
+    let user = await User.findOne({_id: userid}).populate('records');
     if (user.role === "Doctor") {
         // do doctor things
         let username = req.body.username;
-        let patient = await User.findOne({username: username});
+        let patient = await User.findOne({username: username}).populate('records');
         if (!patient) {
             throw new Error("patient " + username + " not found");
         }

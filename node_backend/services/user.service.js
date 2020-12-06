@@ -42,7 +42,10 @@ async function getById(id) {
  */
 async function getAllPatients(req) {
     let userid = req.user.sub;
-    let user = await User.findOne({_id: userid});
+    let user = await User.findOne({_id: userid}).populate({
+        path: 'patients',
+        populate: { path: 'records' }
+    });
     if (user.role === "Patient") {
         throw new Error("Patients cannot view other patients");
     }
