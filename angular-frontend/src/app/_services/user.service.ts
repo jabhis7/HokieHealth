@@ -11,20 +11,19 @@ import { User } from '../_models/user';
 export class UserService {
   constructor(private http: HttpClient) { }
 
-  getAll() {
-    console.log('getAll()');
-    return this.http.get<User[]>(`http://localhost:3000/user/allusers`);
+  getAllPatients() {
+    return this.http.get<User[]>(`http://localhost:3000/user/mypatients`);
   }
 
-
+  addPatient(pat: User) {
+    return this.http.post(`http://localhost:3000/user/newpatient`, pat);
+  }
 
   register(user: User) {
     return this.http.post(`http://localhost:3000/user/register`, user);
   }
 
-
-
-
-
-
+  login(user: User) {
+    return this.http.post(`http://localhost:3000`, user);
+  }
 }

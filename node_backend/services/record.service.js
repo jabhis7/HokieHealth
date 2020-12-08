@@ -7,6 +7,7 @@ const Record = db.Record;
 
 module.exports = {
     getAllRecords,
+    getAllPatientRecords,
     addRecord
 }
 
@@ -19,6 +20,7 @@ module.exports = {
 async function getAllRecords(req) {
     let userid = req.user.sub;
     let user = await User.findOne({_id: userid}).populate('records');
+    return user.records;
     if (user.role === "Doctor") {
         // do doctor things
         let username = req.body.username;
@@ -32,6 +34,11 @@ async function getAllRecords(req) {
         // do patient things
         return user.records;
     }
+}
+
+async function getAllPatientRecords(pat) {
+    let patient = await User.findOne({username: pat}).populated('records');
+    return patient.records;
 }
 
 // TODO: do we want this

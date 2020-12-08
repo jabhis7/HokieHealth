@@ -1,41 +1,18 @@
+<!-- If the current user is a doctor, show his or her patients -->
 <div *ngIf="isDoc">
-<h1>Patients</h1>
-<div>
-  Patients:
-  <ul>
-    <div *ngFor="let user of users" >
-      <li *ngIf="user.role.toString().charAt(0) === 'P'"> User: {{user.username}}, currently taking {{user.currMed}}. Previous Health Problems: {{user.prevProb}}<button mat-button onclick="window.location.href='b.php'">More Details</button> </li>
-      </div>
-  </ul>
-</div>
-<div class="back">
+  <h1>Patients</h1>
+    <div *ngFor="let user of users">
+      <app-patient [curPatient]="user.username" [records]="user.records"></app-patient>
+    </div>
+  <div class="back2"></div>
 </div>
 
-</div>
-
+<!-- If the current user is a patient, show his or her records-->
 <div *ngIf="!isDoc">
-  <h1>My Information</h1>
-  <div>
-    <ul>
-    <div > <li >{{currentUser.username}}, </li > <li >currently taking {{currentUser.currMed}}.</li > <li >Previous Health Problems: {{currentUser.prevProb}} </li ></div>
-    </ul>
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title> Average heart rate </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <mat-form-field>
-          <input matInput placeholder="Enter heart rate" type="number"  class="form-control" (input)="accessCode=$event.target.value">
-        </mat-form-field>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button (click)="trackAtt()">
-          Submit
-        </button>
-      </mat-card-actions>
-    </mat-card>
-
-  </div>
+  <h1>Records</h1>
+    <div *ngFor="let record of records">
+      <app-record [recordDate]="record.date" [heartrate]="record.heartrate"></app-record>
+    </div>
   <div class="back2">
   </div>
 </div>

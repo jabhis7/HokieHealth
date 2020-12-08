@@ -12,7 +12,8 @@ router.post('/newpatient', authorize(Role.doctor), userController.addPatient);
 router.get('/mypatients', authorize(Role.doctor), userController.getAllPatients);
 
 /* Record handler */
-router.get('/records', recordController.getAllRecords);
+router.get('/myrecords', authorize(Role.patient), recordController.getAllRecords);
 router.post('/addrecord', recordController.addRecord);
+router.post('/patientrecords', authorize(Role.doctor), recordController.getAllPatientRecords);
 
 module.exports = router;

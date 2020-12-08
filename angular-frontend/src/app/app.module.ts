@@ -12,6 +12,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {JwtInterceptor} from './_interceptors/jwt.interceptor';
 import {ErrorInterceptor} from './_interceptors/error.interceptor';
+import { RecordComponent } from './record/record.component';
+import { PatientComponent } from './patient/patient.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import {ErrorInterceptor} from './_interceptors/error.interceptor';
     AppComponent,
     AuthenticateUserComponent,
     MainViewComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    RecordComponent,
+    PatientComponent
   ],
   imports: [
     BrowserModule,
