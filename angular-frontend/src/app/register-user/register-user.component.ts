@@ -40,7 +40,7 @@ export class RegisterUserComponent implements OnInit {
       role: [''],
       username: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.-]*$')]/*this.validateUsernameNotTaken.bind(this)*/],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      age: ['', Validators.pattern('^[0-9]$')],
+      age: ['', Validators.pattern('^[1-9]\\d*')],
       PreviousHealthProblems: [''],
       CurrentMedications: [''],
     });
@@ -69,6 +69,7 @@ export class RegisterUserComponent implements OnInit {
         data => {
           //  this.alertService.success('Registration successful', true);
           this.router.navigate(['/login']);
+
         },
         error => {
           console.log('Error:', error);
