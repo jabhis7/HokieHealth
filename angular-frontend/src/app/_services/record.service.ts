@@ -15,7 +15,7 @@ export class RecordService {
     }
 
     getAllPatientRecords(pat) {
-        return this.http.post(`http://localhost:3000/user/patientrecords`, pat);
+        return this.http.post(`http://localhost:3000/user/patientrecords`, {username: pat});
     }
 
     createRecord(rec) {

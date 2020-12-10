@@ -1,0 +1,27 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-content: center;
+  alignment: center;
+}
+
+.form-group > * {
+  width: 100%;
+  align-content: center;
+  alignment: center;
+}
+
+.recordView-card {
+  max-width: 800px;
+  align-content: center;
+  alignment: center;
+  background-color: aliceblue;
+  top: 50px;
+  left: 325px;
+}
+
+
+img {
+  height: 700px;
+}

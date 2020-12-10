@@ -14,6 +14,8 @@ import {JwtInterceptor} from './_interceptors/jwt.interceptor';
 import {ErrorInterceptor} from './_interceptors/error.interceptor';
 import { RecordComponent } from './record/record.component';
 import { PatientComponent } from './patient/patient.component';
+import { RecordViewComponent } from './record-view/record-view.component';
+import { PatientRecordViewComponent } from './patient-record-view/patient-record-view.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { PatientComponent } from './patient/patient.component';
     MainViewComponent,
     RegisterUserComponent,
     RecordComponent,
-    PatientComponent
+    PatientComponent,
+    RecordViewComponent,
+    PatientRecordViewComponent
   ],
   imports: [
     BrowserModule,

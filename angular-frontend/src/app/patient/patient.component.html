@@ -8,6 +8,7 @@
              bind the curPatient's records so they can be Input() into the
              patient record view. 
              https://angular.io/guide/two-way-binding -->
-        <button mat-button> View {{curPatient}}'s records</button> 
+        <button mat-button (click)="emitRecordGetter()"> View {{curPatient}}'s records</button>
+        <button mat-button color="warn" (click)="deleteThisPatient()">Delete patient</button>
     </mat-card-content>
 </mat-card>

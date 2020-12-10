@@ -10,3 +10,21 @@ li{
   background-image: url('https://i.pinimg.com/originals/bb/bf/b4/bbbfb40ef5bbe5d1f972c313e51c7767.jpg');
   height: 500px;
 }
+
+.top {
+  position: fixed;
+  right: 15px;
+  top: 10px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.record-container{
+  display: flex;
+  flex-flow: row wrap;
+  border-radius: 2px;
+  padding: 10px 10px 30px;
+  margin: 10px 10px 10px 10px;
+  background-color: #ffffff;
+}

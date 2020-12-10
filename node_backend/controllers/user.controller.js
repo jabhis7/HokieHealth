@@ -5,7 +5,9 @@ module.exports = {
     authenticate,
     getAllPatients,
     addUser,
-    addPatient
+    addPatient,
+    getUnchosenPatients,
+    deletePatient
 };
 
 
@@ -20,6 +22,18 @@ function getAllPatients(req, res, next) {
 
     userService.getAllPatients(req)
         .then(users => res.json(users))
+        .catch(err => next(err));
+}
+
+function getUnchosenPatients(req, res, next) {
+    userService.getUnchosenPatients()
+        .then((unchosen) => res.json(unchosen))
+        .catch((err) => next(err));
+}
+
+function deletePatient(req, res, next) {
+    userService.deletePatient(req)
+        .then((remaining) => res.json(remaining))
         .catch(err => next(err));
 }
 

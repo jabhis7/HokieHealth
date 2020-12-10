@@ -8,7 +8,8 @@ const schema = new Schema({
         prevProb: {type: String},
         currMed: {type: String},
         patients: [{type: mongoose.SchemaTypes.ObjectId, ref: 'User'}],
-        records: [{type: mongoose.SchemaTypes.ObjectId, ref: 'Record'}]
+        records: [{type: mongoose.SchemaTypes.ObjectId, ref: 'Record'}],
+        doc: { type: mongoose.SchemaTypes.ObjectId }
     } 
 );
 

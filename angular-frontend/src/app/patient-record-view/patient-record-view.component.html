@@ -1,0 +1,11 @@
+<h1>{{patient}}'s Health Records:</h1>
+<div *ngFor="let record of patientRecords">
+    <mat-card>
+        <mat-card-title>
+            {{record.date | date}}
+        </mat-card-title>
+        <mat-card-subtitle>
+            {{record.heartrate}}
+        </mat-card-subtitle>
+    </mat-card>
+</div>

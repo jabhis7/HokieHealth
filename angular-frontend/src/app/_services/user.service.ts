@@ -15,6 +15,14 @@ export class UserService {
     return this.http.get<User[]>(`http://localhost:3000/user/mypatients`);
   }
 
+  getFreePatients() {
+    return this.http.get<User[]>(`http://localhost:3000/user/freepatients`);
+  }
+
+  deletePatient(username : String) {
+    return this.http.delete(`http://localhost:3000/user/removepatient/${username}`);
+  }
+
   addPatient(pat: User) {
     return this.http.post(`http://localhost:3000/user/newpatient`, pat);
   }

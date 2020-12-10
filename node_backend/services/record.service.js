@@ -37,7 +37,7 @@ async function getAllRecords(req) {
 }
 
 async function getAllPatientRecords(pat) {
-    let patient = await User.findOne({username: pat}).populated('records');
+    let patient = await User.findOne({username: pat}).populate('records');
     return patient.records;
 }
 
