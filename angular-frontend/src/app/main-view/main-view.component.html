@@ -1,27 +1,33 @@
 <!-- If the current user is a doctor, show his or her patients -->
 <div *ngIf="isDoc">
-  <button class="top" mat-button [matMenuTriggerFor]="freeUsers">Available Patients</button>
+  <button class="top" mat-raised-button color="warn" [matMenuTriggerFor]="freeUsers">Available Patients
+    <i class="material-icons" color="warn">menu</i></button>
   <mat-menu #freeUsers="matMenu">
       <button mat-menu-item *ngFor="let patient of freePatients" (click)="addPatient(patient)">{{patient.username}}</button>
   </mat-menu>
-  <h1>{{currentUser.username}}'s Patients</h1>
+  <h1>{{currentUser.username}}'s Patients:</h1>
+  <div *ngIf="loading"><h3>Loading patients...</h3></div>
+  <div *ngIf="!loading && users.length == 0"><h3>No patients yet. Add some!</h3></div>
+  <div class="record-container">
     <div *ngFor="let user of users">
       <app-patient [curPatient]="user.username" [records]="user.records" (deleteEvent)="refreshPatients()" (recordEvent)="getPatientRecords(user.username)"></app-patient>
     </div>
-  <div class="back2"></div>
+  </div>
+  <div class="back"></div>
 </div>
 
 <!-- If the current user is a patient, show his or her records-->
 <div *ngIf="!isDoc">
   <h1>Health Records:
-    <button class="top" mat-flat-button color="warn"  matTooltip="New Record" *ngIf="!isDoc" (click)="newRecord()">
-      New Health Record
+    <button class="pat" mat-raised-button  color = "warn" icon="heart" matTooltip="New Record" *ngIf="!isDoc" (click)="newRecord()">
+      New Health Record <i class="material-icons" color="warn">favorite</i>
     </button>
   </h1>
-    <div *ngFor="let record of records">
-      <app-record [recordDate]="record.date" [heartrate]="record.heartrate"></app-record>
+  <div class="record-container" *ngIf="!isDoc">
+  <div *ngFor="let record of records">
+      <app-record [recordDate]="record.date" [heartrate]="record.heartrate" [feedback]="record.feedback"></app-record>
     </div>
+  </div>
   <div class="back2">
   </div>
 </div>
-

@@ -15,5 +15,6 @@ router.delete('/removepatient/:username', authorize(Role.doctor), userController
 router.get('/myrecords', authorize(Role.patient), recordController.getAllRecords);
 router.post('/addrecord', recordController.addRecord);
 router.post('/patientrecords', authorize(Role.doctor), recordController.getAllPatientRecords);
+router.post('/feedbackrecord', authorize(Role.doctor), recordController.sendFeedback);
 
 module.exports = router;

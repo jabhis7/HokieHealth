@@ -1,14 +1,8 @@
 <mat-card>
-    <mat-card-title>{{curPatient}}</mat-card-title>
-    <mat-card-subtitle># records: {{numRecords}}</mat-card-subtitle>
+    <mat-card-title>Patient: {{curPatient}}</mat-card-title>
+    <mat-card-title># records: {{numRecords}}</mat-card-title>
     <mat-card-content>
-        <!-- TODO: create a component for viewing patient records. -->
-        <!-- Hint: check out getAllPatientRecords in the RecordService. -->
-        <!-- clicking this button should route to the view. make sure you
-             bind the curPatient's records so they can be Input() into the
-             patient record view. 
-             https://angular.io/guide/two-way-binding -->
-        <button mat-button (click)="emitRecordGetter()"> View {{curPatient}}'s records</button>
-        <button mat-button color="warn" (click)="deleteThisPatient()">Delete patient</button>
+        <button class="View" mat-raised-button (click)="emitRecordGetter()"> View {{curPatient}}'s records</button>
+        <button class="Delete" mat-raised-button color="warn" (click)="deleteThisPatient()">Delete patient</button>
     </mat-card-content>
 </mat-card>

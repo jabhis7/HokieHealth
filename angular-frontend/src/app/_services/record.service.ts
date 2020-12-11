@@ -22,5 +22,9 @@ export class RecordService {
         return this.http.post(`http://localhost:3000/user/addrecord`, rec);
     }
 
+    giveFeedback(feedback) {
+        return this.http.post(`http://localhost:3000/user/feedbackrecord`, feedback);
+    }
+
 }
 

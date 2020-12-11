@@ -1,4 +1,8 @@
-<mat-card>
-    <mat-card-title>{{recordDate | date}}</mat-card-title>
-    <mat-card-subtitle>{{heartrate}}</mat-card-subtitle>
-</mat-card>
+<mat-card class="recordCard">
+    <mat-card-header>
+      <mat-card-title>Date: {{recordDate | date}}</mat-card-title>
+      <mat-card-title>Heart Rate: {{heartrate}}</mat-card-title>
+      <mat-card-title>Feedback: {{feedback}}</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+  

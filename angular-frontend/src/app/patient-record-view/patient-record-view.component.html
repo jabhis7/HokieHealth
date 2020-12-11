@@ -1,11 +1,25 @@
 <h1>{{patient}}'s Health Records:</h1>
-<div *ngFor="let record of patientRecords">
-    <mat-card>
+<div class="record-container">
+  <div *ngFor="let record of patientRecords">
+    <mat-card class="recordCard">
+      <mat-card-header>
+        <mat-card-title>Date: {{record.date | date}}</mat-card-title>
+        <mat-card-title>Heart Rate: {{record.heartrate}}</mat-card-title>
+        <mat-card-title *ngIf="record.feedback && record.feedback.length != 0">{{record.feedback}}</mat-card-title>
         <mat-card-title>
-            {{record.date | date}}
+          <form [formGroup]="feedbackForm" (ngSubmit)="submitFeedback(record._id)">
+            <mat-form-field appearance="legacy">
+              <mat-label>Feedback</mat-label>
+              <input type="text" formControlName="feedback" matInput placeholder="enter record feedback here..." >
+            </mat-form-field>
+          </form>
         </mat-card-title>
-        <mat-card-subtitle>
-            {{record.heartrate}}
-        </mat-card-subtitle>
+        <mat-card-title>
+          <button mat-button color="primary" (click)="submitFeedback(record._id)">Submit feedback</button>
+        </mat-card-title>
+        
+      </mat-card-header>
     </mat-card>
+  </div>
 </div>
+<div class="back"></div>

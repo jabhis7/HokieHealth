@@ -2,13 +2,21 @@ li{
   color: red;
 }
 .back {
-  background-image: url('https://bralowmedicalgroup.com/wp-content/uploads/2018/06/blog.jpg');
+  background-image: url('https://i.ebayimg.com/images/g/ixUAAOSwr81UOeBq/s-l640.jpg');
+  margin-top: 70px;
   height: 500px;
+  background-repeat: no-repeat;
+  background-position-x: center;
 }
 
 .back2 {
-  background-image: url('https://i.pinimg.com/originals/bb/bf/b4/bbbfb40ef5bbe5d1f972c313e51c7767.jpg');
-  height: 500px;
+  background-image: url('https://friendsofnia.org/wp-content/uploads/2014/01/aha_logo_only.png');
+  margin-top: 240px;
+  height: 310px;
+}
+
+h1 {
+  margin-left: 30px;
 }
 
 .top {
@@ -27,4 +35,13 @@ li{
   padding: 10px 10px 30px;
   margin: 10px 10px 10px 10px;
   background-color: #ffffff;
+}
+
+.pat {
+  position: fixed;
+  right: 15px;
+  top: 10px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
 }

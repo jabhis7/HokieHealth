@@ -1,0 +1,14 @@
+mat-card{
+    border-style: solid;
+    border-color: #24292e;
+    margin: 10px 10px 10px 10px;
+  }
+  
+  .Delete {
+    margin-left: 5px;
+  }
+  
+  .View {
+    margin-right: 5px;
+  }
+  

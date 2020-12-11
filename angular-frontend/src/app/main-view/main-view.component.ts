@@ -22,6 +22,7 @@ export class MainViewComponent implements OnInit {
   records: Record[] = [];
   role: Role;
   currentUser: User;
+  loading: Boolean = true;
 
   constructor(private userService: UserService, 
               private authService: AuthService,
@@ -37,6 +38,7 @@ export class MainViewComponent implements OnInit {
     if (this.isDoc) {
       this.userService.getAllPatients().pipe().subscribe((res) => {
         this.users = res;
+        this.loading = false;
       });
       this.userService.getFreePatients().pipe().subscribe((res) => {
         this.freePatients = res;

@@ -7,7 +7,21 @@
   justify-content: space-around;
 }
 
+mat-card {
+  background-color: white;
+  border-style: solid;
+  border-top-color: maroon;
+  border-left-color: orange;
+  border-bottom-color: maroon;
+  border-right-color: orange;
+  border-width: 4px;
+}
+
+mat-label {
+  color: #24292e;
+}
+
 .back {
-  background-image: url("https://hokiesports.com/images/2020/2/27/Lane_15FB_nc_LR_6285E.jpg");
-  height: 1000px !important;
+  background-image: url("https://sportswar.com/wp-content/uploads/2018/05/hokieheartandsoul_avatar.jpg");
+  height: 300px !important;
 }

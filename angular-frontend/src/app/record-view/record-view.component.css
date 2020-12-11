@@ -2,26 +2,30 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
-  align-content: center;
-  alignment: center;
 }
 
 .form-group > * {
   width: 100%;
-  align-content: center;
-  alignment: center;
 }
 
 .recordView-card {
-  max-width: 800px;
+  background-color: white;
+  border-style: solid;
+  border-color: red;
+  border-width: 4px;
   align-content: center;
   alignment: center;
-  background-color: aliceblue;
-  top: 50px;
-  left: 325px;
 }
 
+.back2 {
+  background-image: url('https://friendsofnia.org/wp-content/uploads/2014/01/aha_logo_only.png');
+  margin-top: 75px;
+  height: 310px;
+}
 
-img {
-  height: 700px;
+.over {
+  margin: auto;
+  width: 50%;
+  padding-top: 50px;
+  padding-bottom: 65px;
 }

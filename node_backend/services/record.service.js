@@ -1,6 +1,4 @@
 const db = require('../_helpers/database'); // TODO: fill out this file
-const mongoose = require("mongoose");
-const { findOne } = require('../models/user.model');
 const User = db.User;
 const Record = db.Record;
 
@@ -8,7 +6,8 @@ const Record = db.Record;
 module.exports = {
     getAllRecords,
     getAllPatientRecords,
-    addRecord
+    addRecord,
+    sendFeedback
 }
 
 /**
@@ -21,29 +20,11 @@ async function getAllRecords(req) {
     let userid = req.user.sub;
     let user = await User.findOne({_id: userid}).populate('records');
     return user.records;
-    if (user.role === "Doctor") {
-        // do doctor things
-        let username = req.body.username;
-        let patient = await User.findOne({username: username}).populate('records');
-        if (!patient) {
-            throw new Error("patient " + username + " not found");
-        }
-        return patient.records;
-    }
-    else {
-        // do patient things
-        return user.records;
-    }
 }
 
 async function getAllPatientRecords(pat) {
     let patient = await User.findOne({username: pat}).populate('records');
     return patient.records;
-}
-
-// TODO: do we want this
-async function deleteCourse(id) {
-     return await Course.deleteOne({"_id":id});
 }
 
 /**
@@ -73,4 +54,14 @@ async function addRecord(req) {
             throw new Error("Invalid record input, please fill in required fields");
         }
     }
+}
+
+async function sendFeedback(req) {
+    let feedback = req.body.feedback;
+    let forRecord = req.body.recordid;
+    let record = Record.findOne({_id: forRecord});
+    if (!record) {
+        throw new Error("Record " + forRecord + " not found.");
+    }
+    return await Record.updateOne({_id: forRecord}, {$set: {feedback: feedback}})
 }

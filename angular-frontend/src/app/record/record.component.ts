@@ -10,6 +10,7 @@ export class RecordComponent implements OnInit {
 
   @Input() recordDate : Date;
   @Input() heartrate : Number;
+  @Input() feedback : String;
 
   constructor() { }
 

@@ -4,7 +4,8 @@ const recordService = require('../services/record.service');
 module.exports = {
     getAllRecords,
     getAllPatientRecords,
-    addRecord
+    addRecord,
+    sendFeedback
 };
 
 
@@ -23,5 +24,11 @@ function getAllPatientRecords(req, res, next) {
 function addRecord(req, res, next) {
     recordService.addRecord(req)
         .then(suc => res.json(suc))
+        .catch(err => next(err));
+}
+
+function sendFeedback(req, res, next) {
+    recordService.sendFeedback(req)
+        .then(ack => res.json(ack))
         .catch(err => next(err));
 }
