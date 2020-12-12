@@ -11,9 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="882e8df9-03eb-43c4-9353-61818e727503" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../angular-frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-frontend/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular-frontend/src/app/main-view/main-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-frontend/src/app/main-view/main-view.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular-frontend/src/app/patient-record-view/patient-record-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-frontend/src/app/patient-record-view/patient-record-view.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular-frontend/src/app/patient/patient.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-frontend/src/app/patient/patient.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular-frontend/src/app/patient/patient.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-frontend/src/app/patient/patient.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +83,7 @@
       <workItem from="1601653032566" duration="350000" />
       <workItem from="1605465846814" duration="58000" />
       <workItem from="1605465973847" duration="7007000" />
-      <workItem from="1607796467725" duration="1738000" />
+      <workItem from="1607796467725" duration="3358000" />
     </task>
     <servers />
   </component>

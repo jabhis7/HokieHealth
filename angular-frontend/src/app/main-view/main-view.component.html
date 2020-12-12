@@ -10,7 +10,10 @@
   <div *ngIf="!loading && users.length == 0"><h3>No patients yet. Add some!</h3></div>
   <div class="record-container">
     <div *ngFor="let user of users">
-      <app-patient [curPatient]="user.username" [records]="user.records" (deleteEvent)="refreshPatients()" (recordEvent)="getPatientRecords(user.username)"></app-patient>
+      <app-patient  [patient]="user"
+                    [curPatient]="user.username" [records]="user.records" [prevProb]="user.prevProb"
+                    [currMed]="user.currMed"(deleteEvent)="refreshPatients()"
+                    (recordEvent)="getPatientRecords(user.username)"></app-patient>
     </div>
   </div>
   <div class="back"></div>

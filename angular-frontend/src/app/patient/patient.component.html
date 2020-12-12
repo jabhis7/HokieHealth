@@ -1,6 +1,8 @@
 <mat-card>
     <mat-card-title>Patient: {{curPatient}}</mat-card-title>
     <mat-card-title># records: {{numRecords}}</mat-card-title>
+    <mat-card-title>Previous conditions: {{prevProb}}</mat-card-title>
+    <mat-card-title>Current medications: {{currMed}}</mat-card-title>
     <mat-card-content>
         <button class="View" mat-raised-button (click)="emitRecordGetter()"> View {{curPatient}}'s records</button>
         <button class="Delete" mat-raised-button color="warn" (click)="deleteThisPatient()">Delete patient</button>

@@ -12,7 +12,10 @@ import { Output } from '@angular/core';
 export class PatientComponent implements OnInit {
 
   @Input() records: Record[];
+  @Input() prevProb: string;
+  @Input() currMed: string;
   @Input() curPatient: String;
+  @Input() patient : Object;
   @Output() deleteEvent = new EventEmitter<String>();
   @Output() recordEvent = new EventEmitter<String>();
   numRecords : Number;
@@ -21,6 +24,8 @@ export class PatientComponent implements OnInit {
 
   ngOnInit() {
     this.numRecords = this.records.length;
+    console.log(this.patient);
+
   }
 
   emitRecordGetter() {
