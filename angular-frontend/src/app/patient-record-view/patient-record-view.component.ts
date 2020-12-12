@@ -23,7 +23,8 @@ export class PatientRecordViewComponent implements OnInit {
       feedback: ['']
     });
     this.patient = this.route.snapshot.paramMap.get('username');
-    this.recordService.getAllPatientRecords(this.patient).pipe().subscribe(res=> { this.patientRecords = res; });
+    
+    this.recordService.getAllPatientRecords(this.patient).pipe().subscribe(res=> { this.patientRecords = res;console.log(this.patientRecords); });
   }
 
   submitFeedback(id) {

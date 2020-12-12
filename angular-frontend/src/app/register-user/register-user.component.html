@@ -60,10 +60,10 @@
         <div class="form-group">
   
           <mat-form-field>
-            <input matInput placeholder="Patient's Previous Health Problems" type="string" formControlName="PreviousHealthProblems" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.PreviousHealthProblems.errors }">
-            <mat-hint *ngIf="submitted && f.PreviousHealthProblems.errors" >
-              <mat-hint *ngIf="f.PreviousHealthProblems.errors.required">Previous Health Problems is required</mat-hint>
-              <mat-hint *ngIf="f.PreviousHealthProblems.errors.pattern">Previous Health Problems is using illegal characters.</mat-hint>
+            <input matInput placeholder="Patient's Previous Health Problems" type="string" formControlName="prevProb" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.prevProb.errors }">
+            <mat-hint *ngIf="submitted && f.prevProb.errors" >
+              <mat-hint *ngIf="f.prevProb.errors.required">Previous Health Problems is required</mat-hint>
+              <mat-hint *ngIf="f.prevProb.errors.pattern">Previous Health Problems is using illegal characters.</mat-hint>
             </mat-hint>
           </mat-form-field>
   
@@ -72,10 +72,10 @@
         <div class="form-group">
   
           <mat-form-field>
-            <input matInput placeholder="Patient's Current Medications" type="string" formControlName="CurrentMedications" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.CurrentMedications.errors }">
-            <mat-hint *ngIf="submitted && f.PreviousHealthProblems.errors" >
-              <mat-hint *ngIf="f.CurrentMedications.errors.required">Current Medications is required</mat-hint>
-              <mat-hint *ngIf="f.CurrentMedications.errors.pattern">Current Medications is using illegal characters.</mat-hint>
+            <input matInput placeholder="Patient's Current Medications" type="string" formControlName="currMed" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.currMed.errors }">
+            <mat-hint *ngIf="submitted && f.prevProb.errors" >
+              <mat-hint *ngIf="f.currMed.errors.required">Current Medications is required</mat-hint>
+              <mat-hint *ngIf="f.currMed.errors.pattern">Current Medications is using illegal characters.</mat-hint>
             </mat-hint>
           </mat-form-field>
   

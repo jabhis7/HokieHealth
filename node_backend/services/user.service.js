@@ -12,7 +12,8 @@ module.exports = {
     addPatient,
     getById,
     getUnchosenPatients,
-    deletePatient
+    deletePatient,
+    newRubric
 }
 
 /**
@@ -29,6 +30,18 @@ async function authenticate({ username, password }) {
             token
         };
     }
+}
+
+async function newRubric(rubric) {
+    let minhr = rubric.minhr;
+    let maxhr = rubric.maxhr;
+    let fdbck = rubric.deffb;
+    let uname = rubric.username;
+    return await User.updateOne({username: uname}, {$set: {
+        deffb: fdbck,
+        minhr: minhr,
+        maxhr: maxhr
+    }});
 }
 
 /**

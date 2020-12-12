@@ -34,4 +34,9 @@ export class UserService {
   login(user: User) {
     return this.http.post(`http://localhost:3000`, user);
   }
+
+  // expect username, minhr, maxhr, deffb. set feedback=deffb
+  addRubric(rubricObj: Object) {
+    return this.http.post(`http://localhost:3000/user/newrubric`, rubricObj);
+  }
 }

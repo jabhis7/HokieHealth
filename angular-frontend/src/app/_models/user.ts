@@ -6,6 +6,10 @@ export class User {
   password: string;
   role: Role;
   prevProb: string;
+  age: Number;
+  minhr: Number;
+  maxhr: Number;
+  deffb: String;
   currMed: string;
   token?: string;
   patients: Object[];

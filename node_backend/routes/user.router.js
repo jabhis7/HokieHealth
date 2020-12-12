@@ -8,9 +8,11 @@ const authorize = require('../_helpers/authorize');
 router.post('/authenticate', userController.authenticate);
 router.post('/register', userController.addUser);
 router.post('/newpatient', authorize(Role.doctor), userController.addPatient);
+router.post('/newrubric', authorize(Role.doctor), userController.newRubric);
 router.get('/mypatients', authorize(Role.doctor), userController.getAllPatients);
 router.get('/freepatients', authorize(Role.doctor), userController.getUnchosenPatients);
 router.delete('/removepatient/:username', authorize(Role.doctor), userController.deletePatient);
+
 /* Record handler */
 router.get('/myrecords', authorize(Role.patient), recordController.getAllRecords);
 router.post('/addrecord', recordController.addRecord);

@@ -5,7 +5,8 @@
       <mat-card-header>
         <mat-card-title>Date: {{record.date | date}}</mat-card-title>
         <mat-card-title>Heart Rate: {{record.heartrate}}</mat-card-title>
-        <mat-card-title *ngIf="record.feedback && record.feedback.length != 0">{{record.feedback}}</mat-card-title>
+        <mat-card-title *ngIf="record.feedback && record.feedback.length != 0">Feedback: {{record.feedback}}</mat-card-title>
+        <mat-card-title *ngIf="!record.feedback">Feedback: Default feedback sent</mat-card-title>
         <mat-card-title>
           <form [formGroup]="feedbackForm" (ngSubmit)="submitFeedback(record._id)">
             <mat-form-field appearance="legacy">

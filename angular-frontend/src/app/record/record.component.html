@@ -2,7 +2,10 @@
     <mat-card-header>
       <mat-card-title>Date: {{recordDate | date}}</mat-card-title>
       <mat-card-title>Heart Rate: {{heartrate}}</mat-card-title>
-      <mat-card-title>Feedback: {{feedback}}</mat-card-title>
+      <mat-card-title>Feedback: 
+        <div *ngIf="feedback">{{feedback}}</div>
+        <div *ngIf="user.deffb && displayDefaultRubric && !feedback">{{this.user.deffb}}</div>
+      </mat-card-title>
     </mat-card-header>
   </mat-card>
   
