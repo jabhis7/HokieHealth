@@ -7,6 +7,10 @@ const cors = require('cors');
 //Parse incoming request bodies in a middleware before your handlers, available under the req.body property.
 const bodyParser = require('body-parser');
 
+const path = require('path');//path to where the production files are located.
+// The '__dirname' parameter is where our Node instance is running.
+app.use('/', express.static(path.join(__dirname+'../../angular-frontend/dist/angular-frontend')));
+
 // Our JWT logic. Uses express-jwt which is a middleware that validates JsonWebTokens and sets req.user.
 const jwt = require('./_helpers/jwt');
 
